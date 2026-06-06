@@ -1,0 +1,14 @@
+node_modules
+frontend/node_modules
+backend/node_modules
+frontend/dist
+backend/data/*.db
+backend/data/*.db-shm
+backend/data/*.db-wal
+firebase-debug.log
+frontend/firebase-debug.log
+dev.out.log
+dev.err.log
+prod.out.log
+prod.err.log
+.git
