@@ -1,8 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import apiRoutes from './routes/index.js';
 import { getDatabaseConfig } from './config/database.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const frontendDistPath = path.resolve(__dirname, '..', '..', 'frontend', 'dist');
 
 export function createApp() {
   const app = express();
@@ -10,6 +16,7 @@ export function createApp() {
     .split(',')
     .map(value => value.trim())
     .filter(Boolean);
+  const hasFrontendDist = fs.existsSync(frontendDistPath);
 
   app.use(cors({
     origin(origin, callback) {
@@ -22,13 +29,21 @@ export function createApp() {
   app.use(express.json());
   app.use(morgan('dev'));
 
-  app.get('/', (_, res) => res.json({
-    ok: true,
-    app: 'Huevos del Norte API',
-    database: getDatabaseConfig(),
-  }));
-
   app.use('/api', apiRoutes);
+
+  if (hasFrontendDist) {
+    app.use(express.static(frontendDistPath));
+    app.get('*', (req, res, next) => {
+      if (req.path.startsWith('/api')) return next();
+      return res.sendFile(path.join(frontendDistPath, 'index.html'));
+    });
+  } else {
+    app.get('/', (_, res) => res.json({
+      ok: true,
+      app: 'Huevos del Norte API',
+      database: getDatabaseConfig(),
+    }));
+  }
 
   app.use((error, _req, res, _next) => {
     const status = error.statusCode || 500;

@@ -1,0 +1,11 @@
+
+> start
+> npm start --prefix backend
+
+
+> start
+> node src/start.js
+
+API corriendo en http://localhost:5000
+[0mGET / [32m200[0m 5.956 ms - 915[0m
+[0mGET /api/health [32m200[0m 4.623 ms - 34[0m
