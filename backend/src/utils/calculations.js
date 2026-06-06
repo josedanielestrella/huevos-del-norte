@@ -1,4 +1,4 @@
-import { EGG_PER_CARTON } from '../data/store.js';
+import { EGG_PER_CARTON } from '../store.js';
 
 export function toUnits(mode, quantity) {
   const q = Number(quantity || 0);

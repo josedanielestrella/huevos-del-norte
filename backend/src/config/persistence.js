@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import Database from 'better-sqlite3';
-import { store } from '../data/store.js';
+import { store } from '../store.js';
 import { getDatabaseConfig } from './database.js';
 import { hashPassword } from '../utils/auth.js';
 

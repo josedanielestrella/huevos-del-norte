@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { store, EGG_PER_CARTON, USER_ROLES } from '../data/store.js';
+import { store, EGG_PER_CARTON, USER_ROLES } from '../store.js';
 import { getDatabaseConfig } from '../config/database.js';
 import { createToken, hashPassword, sanitizeUser, verifyPassword } from '../utils/auth.js';
 

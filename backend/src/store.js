@@ -1,0 +1,97 @@
+export const EGG_PER_CARTON = 30;
+
+export const USER_ROLES = ['admin', 'vendedor'];
+
+export const store = {
+  company: {
+    name: 'Huevos del Norte',
+    phone: '',
+    address: '',
+    rnc: '',
+    currency: 'RD$',
+    taxRate: 0,
+    eggPerCarton: EGG_PER_CARTON,
+  },
+
+  users: [
+    {
+      id: 'usr-admin',
+      username: 'josedanielestrella@outlook.com',
+      passwordHash: 'scrypt$ebb62410610ee189af43da269efa5195$78e00c2f6241165256aad5a3922e8891735bf5a5d0011313d7761fa5548ca2e4436e28b3176a3b06d88a74a648fcb7c668fc880bbc879bf1059cc956f66a13f9',
+      role: 'admin',
+      permissions: ['*'],
+      employeeId: 'emp-admin',
+      name: 'Jose Daniel Estrella',
+      phone: '',
+      email: 'josedanielestrella@outlook.com',
+      displayName: 'Jose Daniel Estrella',
+      status: 'activo',
+      active: true,
+      assignedRouteIds: [],
+      rememberTokenVersion: 1,
+      passwordRecovery: {
+        enabled: false,
+        resetToken: null,
+        resetRequestedAt: null,
+      },
+      createdAt: '2026-05-21T08:00:00.000Z',
+      lastLoginAt: null,
+    },
+  ],
+
+  employees: [
+    {
+      id: 'emp-admin',
+      name: 'Jose Daniel Estrella',
+      phone: '',
+      address: '',
+      role: 'admin',
+      salaryType: 'mensual',
+      salaryAmount: 0,
+      status: 'activo',
+      createdAt: '2026-05-21T08:00:00.000Z',
+    },
+  ],
+
+  customers: [],
+  vendors: [],
+  products: [
+    {
+      id: 'prod-marron',
+      name: 'Huevo Marron',
+      unitPrice: 8,
+      cartonPrice: 240,
+      pricePerUnit: 8,
+      pricePerCarton: 240,
+      stockQuantity: 0,
+      status: 'activo',
+    },
+    {
+      id: 'prod-blanco',
+      name: 'Huevo Blanco',
+      unitPrice: 7,
+      cartonPrice: 210,
+      pricePerUnit: 7,
+      pricePerCarton: 210,
+      stockQuantity: 0,
+      status: 'activo',
+    },
+  ],
+  invoices: [],
+  transactions: [],
+  routes: [],
+  trucks: [],
+  inventoryLots: [],
+  purchases: [],
+  purchaseItems: [],
+  routeLoads: [],
+  saleItems: [],
+  expenses: [],
+  accountReceivables: [],
+  accountPayables: [],
+  routeSettlements: [],
+  customerPayments: [],
+  vendorPayments: [],
+  inventoryReturns: [],
+  auditLogs: [],
+};
