@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:5000/api/state)",
+      "Bash(node src/server.js)",
+      "Bash(Start-Sleep -Seconds 2)",
+      "Bash(Select-Object -First 5)",
+      "PowerShell(Invoke-RestMethod -Uri http://localhost:5000/api/state -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Name node -ErrorAction SilentlyContinue)",
+      "PowerShell(Start-Process -NoNewWindow -FilePath \"node\" -ArgumentList \"src/server.js\" -WorkingDirectory \"c:\\\\Users\\\\eltig\\\\Desktop\\\\huevos-del-norte\\\\backend\")",
+      "Bash(npm run *)"
+    ]
+  }
+}

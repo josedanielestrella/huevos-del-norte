@@ -1,0 +1,29 @@
+
+> dev
+> concurrently -k -n backend,frontend -c blue,green "npm:dev:backend" "npm:dev:frontend"
+
+[backend] 
+[backend] > dev:backend
+[backend] > npm run dev --prefix backend
+[backend] 
+[frontend] 
+[frontend] > dev:frontend
+[frontend] > npm run dev --prefix frontend
+[frontend] 
+[frontend] 
+[frontend] > dev
+[frontend] > vite --host 0.0.0.0
+[frontend] 
+[backend] 
+[backend] > dev
+[backend] > node --watch src/start.js
+[backend] 
+[frontend] Port 5173 is in use, trying another one...
+[frontend] Port 5174 is in use, trying another one...
+[frontend] 
+[frontend]   [32m[1mVITE[22m v8.0.14[39m  [2mready in [0m[1m418[22m[2m[0m ms[22m
+[frontend] 
+[frontend]   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5175[22m/[39m
+[frontend]   [32m➜[39m  [1mNetwork[22m: [36mhttp://10.0.0.23:[1m5175[22m/[39m
+[backend] La API ya esta corriendo en http://localhost:5000
+[backend] Completed running 'src/start.js'. Waiting for file changes before restarting...
