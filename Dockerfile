@@ -24,8 +24,10 @@ COPY backend/package*.json ./backend/
 RUN npm install --prefix backend
 
 COPY backend ./backend
-COPY --from=frontend-build /app/frontend/dist ./frontend/dist
+COPY --from=frontend-build /app/frontend/dist /app/frontend/dist
+
+WORKDIR /app/backend
 
 EXPOSE 5000
 
-CMD ["npm", "start", "--prefix", "backend"]
+CMD ["npm", "start"]
