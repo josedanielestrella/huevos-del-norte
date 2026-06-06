@@ -1,10 +1,9 @@
-const CACHE = 'huevos-norte-v2';
+const CACHE = 'huevos-norte-v3';
 
 const SHELL = ['/', '/index.html'];
 
 function getApiUrl() {
-  const url = new URL(self.location.href);
-  return `${url.protocol}//${url.hostname}:5000/api`;
+  return `${self.location.origin}/api`;
 }
 
 self.addEventListener('install', event => {
@@ -22,6 +21,8 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+
   const requestUrl = event.request.url;
   const apiUrl = getApiUrl();
 
