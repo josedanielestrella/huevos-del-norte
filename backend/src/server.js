@@ -32,9 +32,23 @@ export function createApp() {
   app.use('/api', apiRoutes);
 
   if (hasFrontendDist) {
-    app.use(express.static(frontendDistPath));
+    app.use(express.static(frontendDistPath, {
+      etag: false,
+      lastModified: false,
+      maxAge: 0,
+      setHeaders(res, filePath) {
+        if (filePath.endsWith('.html') || filePath.endsWith('manifest.json') || filePath.endsWith('sw.js')) {
+          res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+          res.setHeader('Pragma', 'no-cache');
+          res.setHeader('Expires', '0');
+        }
+      },
+    }));
     app.get('*', (req, res, next) => {
       if (req.path.startsWith('/api')) return next();
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
       return res.sendFile(path.join(frontendDistPath, 'index.html'));
     });
   } else {
