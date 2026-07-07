@@ -1,0 +1,15 @@
+
+> start
+> npm start --prefix backend
+
+
+> start
+> node src/start.js
+
+◇ injected env (7) from .env // tip: ⌘ suppress logs { quiet: true }
+API corriendo en http://localhost:5000
+[0mGET /api/health [32m200[0m 3.799 ms - 34[0m
+[0mGET / [32m200[0m 5.593 ms - 915[0m
+[0mGET /assets/index-DjTjzn0O.css [32m200[0m 1.984 ms - 12841[0m
+[0mGET /static/index-Ch9I6MVd.js [32m200[0m 2.009 ms - 193675[0m
+[0mGET /static/index-DjTjzn0O.css [32m200[0m 1.457 ms - 12841[0m
